@@ -14,7 +14,7 @@ import { useToast } from '../../context/ToastContext';
 import Input from '../../components/Input/index';
 import Button from '../../components/Button/index';
 
-import { Container, Background, Content } from './styles';
+import { Container, Background, Content, AnimateContent } from './styles';
 
 import logoImg from '../../assets/logo.svg';
 
@@ -51,6 +51,8 @@ const SignIn: React.FC = () => {
           const errors = getValidationErrors(err);
 
           formRef.current?.setErrors(errors);
+
+          return;
         }
 
         addToast({
@@ -66,28 +68,35 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <Content>
-        <img src={logoImg} alt="GoBarber" />
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu logon</h1>
+        <AnimateContent>
+          <img src={logoImg} alt="GoBarber" />
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu logon</h1>
 
-          <Input type="text" icon={FiMail} name="email" placeholder="E-mail" />
+            <Input
+              type="text"
+              icon={FiMail}
+              name="email"
+              placeholder="E-mail"
+            />
 
-          <Input
-            type="password"
-            icon={FiLock}
-            name="password"
-            placeholder="Senha"
-          />
+            <Input
+              type="password"
+              icon={FiLock}
+              name="password"
+              placeholder="Senha"
+            />
 
-          <Button type="submit">Entrar</Button>
+            <Button type="submit">Entrar</Button>
 
-          <a href="forgot">Esqueci minha senha</a>
-        </Form>
+            <a href="forgot">Esqueci minha senha</a>
+          </Form>
 
-        <Link to="/singup">
-          <FiLogIn />
-          Criar conta
-        </Link>
+          <Link to="/singup">
+            <FiLogIn />
+            Criar conta
+          </Link>
+        </AnimateContent>
       </Content>
 
       <Background />

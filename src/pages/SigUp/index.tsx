@@ -12,7 +12,7 @@ import Button from '../../components/Button/index';
 
 import logoImg from '../../assets/logo.svg';
 
-import { Container, Background, Content } from './styles';
+import { Container, Background, Content, AnimateContent } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -42,31 +42,37 @@ const SignUp: React.FC = () => {
   return (
     <Container>
       <Background />
-
       <Content>
-        <img src={logoImg} alt="GoBarber" />
+        <AnimateContent>
+          <img src={logoImg} alt="GoBarber" />
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu cadastro</h1>
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu cadastro</h1>
 
-          <Input type="text" icon={FiUser} name="name" placeholder="Nome" />
+            <Input type="text" icon={FiUser} name="name" placeholder="Nome" />
 
-          <Input type="text" icon={FiMail} name="email" placeholder="E-mail" />
+            <Input
+              type="text"
+              icon={FiMail}
+              name="email"
+              placeholder="E-mail"
+            />
 
-          <Input
-            type="password"
-            icon={FiLock}
-            name="password"
-            placeholder="Senha"
-          />
+            <Input
+              type="password"
+              icon={FiLock}
+              name="password"
+              placeholder="Senha"
+            />
 
-          <Button type="submit">Cadastrar</Button>
-        </Form>
+            <Button type="submit">Cadastrar</Button>
+          </Form>
 
-        <Link to="/">
-          <FiArrowLeft />
-          Voltar para Logon
-        </Link>
+          <Link to="/">
+            <FiArrowLeft />
+            Voltar para Logon
+          </Link>
+        </AnimateContent>
       </Content>
     </Container>
   );
