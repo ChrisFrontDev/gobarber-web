@@ -1,16 +1,18 @@
 import React, { useCallback, useRef } from 'react';
 import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
-
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
+
 import getValidationErrors from '../../utils/getValidationErros';
 
-import { Container, Background, Content } from './styles';
 import Input from '../../components/Input/index';
 import Button from '../../components/Button/index';
 
 import logoImg from '../../assets/logo.svg';
+
+import { Container, Background, Content } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -61,10 +63,10 @@ const SignUp: React.FC = () => {
           <Button type="submit">Cadastrar</Button>
         </Form>
 
-        <a href="register">
+        <Link to="/">
           <FiArrowLeft />
           Voltar para Logon
-        </a>
+        </Link>
       </Content>
     </Container>
   );
